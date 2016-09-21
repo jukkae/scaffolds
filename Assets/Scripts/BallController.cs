@@ -32,5 +32,8 @@ public class BallController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Goal")) {
 			winText.text = "THE WINNER IS YOU";
 		}
+		if (other.gameObject.CompareTag ("Boundary")) {
+			winText.text = "YOU LOSE";
+		}
 	}
 }
