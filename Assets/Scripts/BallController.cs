@@ -11,20 +11,30 @@ public class BallController : MonoBehaviour {
 
 	public Text winText;
 
+	private float groundDistance = .5f;
+
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		winText.text = "";
 	}
+
+	bool IsGrounded ()
+	{
+		return Physics.Raycast (transform.position, - Vector3.up, groundDistance + 0.1f);
+	}
 	
 	void FixedUpdate () {
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		Vector3 movement = new Vector3 (moveHorizontal, .0f, .0f);
+		if (IsGrounded()) {
 
-		rb.AddForce (movement * speed);
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			Vector3 movement = new Vector3 (moveHorizontal, .0f, .0f);
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-			Vector3 jump = new Vector3 (.0f, jumpspeed, .0f);
-			rb.AddForce (jump);
+			rb.AddForce (movement * speed);
+
+			if (Input.GetKeyDown (KeyCode.Space)) {
+				Vector3 jump = new Vector3 (.0f, jumpspeed, .0f);
+				rb.AddForce (jump);
+			}
 		}
 	}
 
