@@ -16,6 +16,7 @@ public class BallController : MonoBehaviour {
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		winText.text = "";
+		rb.maxAngularVelocity = 1000;
 	}
 
 	bool IsGrounded ()
@@ -25,15 +26,19 @@ public class BallController : MonoBehaviour {
 	
 	void FixedUpdate () {
 		if (IsGrounded()) {
-
 			float moveHorizontal = Input.GetAxis ("Horizontal");
-			Vector3 movement = new Vector3 (moveHorizontal, .0f, .0f);
+			//Vector3 movement = new Vector3 (moveHorizontal, .0f, .0f);
 
-			rb.AddForce (movement * speed);
+			//rb.AddForce (movement * speed);
+			rb.AddTorque (.0f, .0f, moveHorizontal * speed * -1);
+		}
+	}
 
+	void Update () {
+		if (IsGrounded ()) {
 			if (Input.GetKeyDown (KeyCode.Space)) {
 				Vector3 jump = new Vector3 (.0f, jumpspeed, .0f);
-				rb.AddForce (jump);
+				rb.AddForce (jump, ForceMode.Impulse);
 			}
 		}
 	}
