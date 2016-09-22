@@ -3829,7 +3829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e540961073ec2478c92bd0fe46f52c8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   jumpspeed: 10
   winText: {fileID: 448835359}
 --- !u!54 &1642196291
