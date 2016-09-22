@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class BallController : MonoBehaviour {
@@ -46,6 +47,7 @@ public class BallController : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag ("Goal")) {
 			winText.text = "THE WINNER IS YOU";
+			SceneManager.LoadScene ("2");
 		}
 		if (other.gameObject.CompareTag ("Boundary")) {
 			winText.text = "YOU LOSE";
