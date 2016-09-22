@@ -9,6 +9,7 @@ public class BallController : MonoBehaviour {
 
 	public float speed;
 	public float jumpspeed;
+	private float jmp = 0;
 
 	public Text winText;
 
@@ -37,9 +38,16 @@ public class BallController : MonoBehaviour {
 
 	void Update () {
 		if (IsGrounded ()) {
-			if (Input.GetKeyDown (KeyCode.Space)) {
-				Vector3 jump = new Vector3 (.0f, jumpspeed, .0f);
-				rb.AddForce (jump, ForceMode.Impulse);
+			if (Input.GetKey (KeyCode.Space)) {
+				//Vector3 jump = new Vector3 (.0f, jumpspeed, .0f);
+				//rb.AddForce (jump, ForceMode.Impulse);
+				if (jmp < jumpspeed) {
+					jmp += .5f;
+				}
+			}
+			if (Input.GetKeyUp (KeyCode.Space)) {
+				rb.AddForce (new Vector3 (.0f, jmp, .0f), ForceMode.Impulse);
+				jmp = 0;
 			}
 		}
 	}
