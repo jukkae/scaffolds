@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Goal
   - Boundary
+  - SmallerPowerup
+  - LargerPowerup
   layers:
   - Default
   - TransparentFX
