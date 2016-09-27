@@ -8,6 +8,7 @@ TagManager:
   - Boundary
   - SmallerPowerup
   - LargerPowerup
+  - Destructible
   layers:
   - Default
   - TransparentFX

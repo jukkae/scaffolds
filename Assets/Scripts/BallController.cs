@@ -78,5 +78,8 @@ public class BallController : MonoBehaviour {
 			rb.mass *= 2.0f;
 			other.gameObject.SetActive (false);
 		}
+		if (other.gameObject.CompareTag ("Destructible")) {
+			other.gameObject.SetActive (false);
+		}
 	}
 }
