@@ -23,11 +23,13 @@ public class BallController : MonoBehaviour {
 	{
 		// TODO dirty; move to some sort of scale variable
 		float groundDistance = GetComponent<SphereCollider> ().radius * transform.localScale.x;
-		// TODO doesn't work if hanging between two edges, move to spherecast
-		// http://answers.unity3d.com/questions/637836/checking-if-grounded-using-spherecast-acting-like.html
 		// -> nice puzzle: two rails, need to grow/shrink the ball to a certain size so that the ball rides
 		// between the rails and gets stuff from below the rails
-		return Physics.Raycast (transform.position, - Vector3.up, groundDistance + 0.1f);
+		//return Physics.Raycast (transform.position, - Vector3.up, groundDistance + 0.1f);
+
+		RaycastHit rayHit;
+		Vector3 startPoint = transform.position;
+		return Physics.SphereCast (startPoint, groundDistance-0.01f, Vector3.down, out rayHit, 0.02f);  
 	}
 	
 	void FixedUpdate () {
@@ -41,12 +43,12 @@ public class BallController : MonoBehaviour {
 	}
 
 	void Update () {
-		if (IsGrounded ()) {
-			if (Input.GetKey (KeyCode.Space)) {
-				if (jmp < jumpspeed) {
-					jmp += .5f;
-				}
+		if (Input.GetKey (KeyCode.Space)) { // charge jumps midair as well
+			if (jmp < jumpspeed) {
+				jmp += .5f;
 			}
+		}
+		if (IsGrounded ()) {
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				rb.AddForce (new Vector3 (.0f, jmp, .0f), ForceMode.Impulse);
 				jmp = 0;
