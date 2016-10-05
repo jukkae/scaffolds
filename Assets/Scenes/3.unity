@@ -2390,6 +2390,7 @@ GameObject:
   - 33: {fileID: 379421317}
   - 65: {fileID: 379421316}
   - 23: {fileID: 379421315}
+  - 114: {fileID: 379421318}
   m_Layer: 0
   m_Name: Shrink
   m_TagString: SmallerPowerup
@@ -2458,6 +2459,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 379421313}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &379421318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 379421313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff92c1c7bb4f42ba878e2d6a3b0f6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &382438072
 GameObject:
   m_ObjectHideFlags: 0
@@ -11290,6 +11302,7 @@ GameObject:
   - 33: {fileID: 1696596332}
   - 65: {fileID: 1696596331}
   - 23: {fileID: 1696596330}
+  - 114: {fileID: 1696596333}
   m_Layer: 0
   m_Name: Shrink (2)
   m_TagString: LargerPowerup
@@ -11358,6 +11371,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1696596328}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1696596333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1696596328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ff92c1c7bb4f42ba878e2d6a3b0f6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1734835816
 GameObject:
   m_ObjectHideFlags: 0

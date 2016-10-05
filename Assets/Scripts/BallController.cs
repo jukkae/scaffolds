@@ -21,11 +21,8 @@ public class BallController : MonoBehaviour {
 
 	bool IsGrounded ()
 	{
-		// TODO dirty; move to some sort of scale variable
+		// TODO dirty; use some sort of scale variable instead of localScale.x
 		float groundDistance = GetComponent<SphereCollider> ().radius * transform.localScale.x;
-		// -> nice puzzle: two rails, need to grow/shrink the ball to a certain size so that the ball rides
-		// between the rails and gets stuff from below the rails
-		//return Physics.Raycast (transform.position, - Vector3.up, groundDistance + 0.1f);
 
 		RaycastHit rayHit;
 		Vector3 startPoint = transform.position;
@@ -48,7 +45,7 @@ public class BallController : MonoBehaviour {
 				jmp += .5f;
 			}
 		}
-		if (IsGrounded ()) {
+		if (IsGrounded ()) { // but only allow jumps from ground
 			if (Input.GetKeyUp (KeyCode.Space)) {
 				rb.AddForce (new Vector3 (.0f, jmp, .0f), ForceMode.Impulse);
 				jmp = 0;
