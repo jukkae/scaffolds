@@ -7,8 +7,8 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Sky
-  m_Shader: {fileID: 104, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _EMISSION
+  m_Shader: {fileID: 106, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _EMISSION _SUNDISK_NONE
   m_LightmapFlags: 1
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -107,6 +107,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - first:
+        name: _AtmosphereThickness
+      second: 1.91
+    - first:
         name: _BumpScale
       second: 1
     - first:
@@ -120,7 +123,7 @@ Material:
       second: 0
     - first:
         name: _Exposure
-      second: 1
+      second: 1.2
     - first:
         name: _GlossMapScale
       second: 1
@@ -155,6 +158,12 @@ Material:
         name: _SrcBlend
       second: 1
     - first:
+        name: _SunDisk
+      second: 0
+    - first:
+        name: _SunSize
+      second: 1
+    - first:
         name: _UVSec
       second: 0
     - first:
@@ -168,5 +177,11 @@ Material:
         name: _EmissionColor
       second: {r: 0, g: 0, b: 0, a: 1}
     - first:
+        name: _GroundColor
+      second: {r: 0.27675, g: 0.369, b: 0.34865072, a: 1}
+    - first:
+        name: _SkyTint
+      second: {r: 0.1875, g: 0.4448529, b: 0.5, a: 1}
+    - first:
         name: _Tint
-      second: {r: 0, g: 0.7931032, b: 1, a: 0.5}
+      second: {r: 0.7352941, g: 0.9065744, b: 0.8, a: 0.5}
