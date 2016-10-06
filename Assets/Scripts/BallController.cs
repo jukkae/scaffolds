@@ -60,6 +60,9 @@ public class BallController : MonoBehaviour {
 		if (other.gameObject.CompareTag ("Boundary")) {
 			winText.text = "YOU LOSE";
 		}
+		if (other.gameObject.CompareTag ("Pickup")) {
+			other.gameObject.SetActive (false);
+		}
 		if (other.gameObject.CompareTag ("SmallerPowerup")) {
 			transform.localScale = new Vector3 (.5f * transform.localScale.x,
 												.5f * transform.localScale.y,

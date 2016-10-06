@@ -9,6 +9,7 @@ TagManager:
   - SmallerPowerup
   - LargerPowerup
   - Destructible
+  - Pickup
   layers:
   - Default
   - TransparentFX
