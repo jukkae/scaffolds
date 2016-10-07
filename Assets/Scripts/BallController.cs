@@ -13,9 +13,11 @@ public class BallController : MonoBehaviour {
 
 	public Text winText;
 	public Text scoreText;
+	public Text timeText;
 
 	private int numberOfCoins = 0;
 	private int numberOfCoinsTotal;
+	private float time = 0;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
@@ -23,7 +25,7 @@ public class BallController : MonoBehaviour {
 		rb.maxAngularVelocity = 1000;
 		numberOfCoinsTotal = GameObject.FindGameObjectsWithTag ("Pickup").Length;
 		scoreText.text = "Score: " + numberOfCoins + " / " + numberOfCoinsTotal;
-
+		timeText.text = "Time: " + time.ToString();
 	}
 
 	bool IsGrounded ()
@@ -58,6 +60,8 @@ public class BallController : MonoBehaviour {
 				jmp = 0;
 			}
 		}
+		time = (int) Time.time;
+		timeText.text = "Time: " + time.ToString();
 	}
 
 	void OnTriggerEnter(Collider other) {
