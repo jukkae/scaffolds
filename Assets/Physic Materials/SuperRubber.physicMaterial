@@ -8,6 +8,6 @@ PhysicMaterial:
   m_Name: SuperRubber
   dynamicFriction: 0.9
   staticFriction: 0.9
-  bounciness: 1
+  bounciness: 0.99
   frictionCombine: 0
   bounceCombine: 3

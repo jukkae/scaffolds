@@ -12,11 +12,18 @@ public class BallController : MonoBehaviour {
 	private float jmp = 0;
 
 	public Text winText;
+	public Text scoreText;
+
+	private int numberOfCoins = 0;
+	private int numberOfCoinsTotal;
 
 	void Start () {
 		rb = GetComponent<Rigidbody> ();
 		winText.text = "";
 		rb.maxAngularVelocity = 1000;
+		numberOfCoinsTotal = GameObject.FindGameObjectsWithTag ("Pickup").Length;
+		scoreText.text = "Score: " + numberOfCoins + " / " + numberOfCoinsTotal;
+
 	}
 
 	bool IsGrounded ()
@@ -62,6 +69,8 @@ public class BallController : MonoBehaviour {
 		}
 		if (other.gameObject.CompareTag ("Pickup")) {
 			other.gameObject.SetActive (false);
+			numberOfCoins++;
+			scoreText.text = "Score: " + numberOfCoins + " / " + numberOfCoinsTotal;
 		}
 		if (other.gameObject.CompareTag ("SmallerPowerup")) {
 			transform.localScale = new Vector3 (.5f * transform.localScale.x,
